@@ -8,6 +8,10 @@ export default function Home() {
   const [tasks, setTasks] = useState<string[]>([])
   const [tasksName, setTasksName] = useState('')
 
+  const [created, setCreated] = useState<number>(0)
+  const [finish, setFinish] = useState<number>(0)
+
+
   function handleTaskAdd() {
     if (tasks.includes(tasksName)) {
       return Alert.alert('Tarefa ja adicionada', 'Voce ja adicionou essa tarefa')
@@ -15,6 +19,7 @@ export default function Home() {
 
     setTasks(prevState => [...prevState, tasksName]) //MANIPULANDO ESTADO
     setTasksName('') //usado para limpar a caixinha depois de add 
+    setCreated(created + 1)
   }
 
   function hadleTaskRemove(name: string) {
@@ -47,6 +52,7 @@ export default function Home() {
             placeholder='Adicione uma nova tarefa'
             placeholderTextColor={'#6b6b6b'}
             onChangeText={setTasksName}
+            value={tasksName}
           />
           <View style={styles.divButton}>
             <TouchableOpacity style={styles.button} onPress={handleTaskAdd}>
@@ -60,17 +66,17 @@ export default function Home() {
 
         <View style={styles.alt}>
 
-        <View style={styles.menu}>
-          <Text style={styles.created}>
-            Criadas
-          </Text>
+          <View style={styles.menu}>
+            <Text style={styles.created}>
+              Criadas {created}
+            </Text>
 
-          <Text style={styles.completed}>
-            Concluidas
-          </Text>
-        </View>
+            <Text style={styles.completed}>
+              Concluidas
+            </Text>
+          </View>
 
-          
+
           <FlatList
             data={tasks}
             keyExtractor={item => item}
@@ -80,13 +86,17 @@ export default function Home() {
                 key={item}
                 name={item}
                 onRemove={() => hadleTaskRemove(item)}
+                
               />
             )}
             ListEmptyComponent={() => (
+
               <Text style={styles.listEmpty}>
                 Lista de tarefas
               </Text>
+              
             )}
+
           />
         </View>
 

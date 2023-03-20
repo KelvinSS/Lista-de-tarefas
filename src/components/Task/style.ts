@@ -2,7 +2,7 @@ import { StyleSheet } from "react-native";
 import { FontAwesome } from '@expo/vector-icons';
 
 export const styles = StyleSheet.create({
-    container:{      
+    container: {
         flex: 1,
         backgroundColor: '#1f1e25',
         borderRadius: 5,
@@ -11,31 +11,31 @@ export const styles = StyleSheet.create({
         marginBottom: 10,
         maxWidth: 320,
     },
-    name:{
-         flexGrow: 9,
+    name: {
+        flexGrow: 9,
         fontSize: 16,
         color: 'white',
         // backgroundColor: '#fff',
         marginLeft: 12,
         maxWidth: 230,
-    //    width: '75%'
-        
+        //    width: '75%'
+
     },
     buttonText: {
         color: '#fff',
 
     },
-    div:{
-      flexGrow: 1,
-      alignItems: 'flex-end',
+    div: {
+        flexGrow: 1,
+        alignItems: 'flex-end',
         // backgroundColor: 'white',
         // width: '20%'
     },
-    check:{
-     
+    check: {
+        backgroundColor: 'red',
     },
-    button:{
-        
+    button: {
+
         width: 50,
         height: 50,
         borderRadius: 5,
